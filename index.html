@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViTA Design System - UI Kit</title>
+    <link rel="stylesheet" href="./DESIGN_TOKENS.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--vita-color-surface-background);
+            color: var(--vita-color-text-on-surface);
+            font-family: var(--vita-font-family-body);
+            transition: all 0.3s ease;
+        }
+
+        /* Global font fallbacks for common elements */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--vita-font-family-display);
+            font-weight: var(--vita-font-weight-semibold);
+        }
+
+        span, p, div, label {
+            font-family: var(--vita-font-family-body);
+        }
+
+        button {
+            font-family: var(--vita-font-family-display);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--vita-spacing-6);
+        }
+
+        .header {
+            background-color: var(--vita-color-surface-container-high);
+            padding: var(--vita-spacing-4) var(--vita-spacing-6);
+            margin-bottom: var(--vita-spacing-8);
+            border-radius: var(--vita-border-radius-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--vita-shadow-sm);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: var(--vita-spacing-4);
+            margin-bottom: var(--vita-spacing-6);
+            background-color: var(--vita-color-surface-container);
+            padding: var(--vita-spacing-1);
+            border-radius: var(--vita-border-radius-sm);
+        }
+
+        .nav-tab {
+            padding: var(--vita-spacing-3) var(--vita-spacing-6);
+            border: none;
+            background: none;
+            border-radius: var(--vita-border-radius-xs);
+            cursor: pointer;
+            font-family: var(--vita-font-family-display);
+            font-weight: var(--vita-font-weight-medium);
+            color: var(--vita-color-text-on-surface-variant);
+            transition: all 0.2s ease;
+        }
+
+        .nav-tab.active {
+            background-color: var(--vita-color-brand-primary);
+            color: var(--vita-color-text-on-primary);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background-color: var(--vita-color-surface-container-high);
+        }
+
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        .theme-toggle {
+            background-color: var(--vita-color-brand-primary);
+            color: var(--vita-color-text-on-primary);
+            border: none;
+            padding: var(--vita-spacing-2) var(--vita-spacing-4);
+            border-radius: var(--vita-border-radius-sm);
+            cursor: pointer;
+            font-family: var(--vita-font-family-display);
+            font-weight: var(--vita-font-weight-medium);
+            display: flex;
+            align-items: center;
+            gap: var(--vita-spacing-2);
+        }
+
+        .section {
+            margin-bottom: var(--vita-spacing-8);
+        }
+
+        .section-title {
+            margin-bottom: var(--vita-spacing-4);
+            padding-bottom: var(--vita-spacing-2);
+            border-bottom: 2px solid var(--vita-color-outline-variant);
+        }
+
+        .grid {
+            display: grid;
+            gap: var(--vita-spacing-4);
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        .grid-5 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+
+        .color-card {
+            background-color: var(--vita-color-surface-main);
+            border-radius: var(--vita-border-radius-md);
+            padding: var(--vita-spacing-4);
+            box-shadow: var(--vita-shadow-sm);
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 80px;
+            border-radius: var(--vita-border-radius-sm);
+            margin-bottom: var(--vita-spacing-3);
+            border: 1px solid var(--vita-color-outline-variant);
+        }
+
+        .color-info {
+            font-family: var(--vita-font-family-body);
+            font-size: var(--vita-font-size-sm);
+        }
+
+        .color-name {
+            font-weight: var(--vita-font-weight-medium);
+            margin-bottom: var(--vita-spacing-1);
+        }
+
+        .color-value {
+            font-family: 'Courier New', monospace;
+            background-color: var(--vita-color-surface-variant);
+            padding: var(--vita-spacing-1) var(--vita-spacing-2);
+            border-radius: var(--vita-border-radius-xs);
+            font-size: var(--vita-font-size-xs);
+        }
+
+        .text-example {
+            margin-bottom: var(--vita-spacing-3);
+            padding: var(--vita-spacing-3);
+            background-color: var(--vita-color-surface-main);
+            border-radius: var(--vita-border-radius-sm);
+            border-left: 4px solid var(--vita-color-brand-primary);
+        }
+
+        .component-showcase {
+            background-color: var(--vita-color-surface-main);
+            padding: var(--vita-spacing-6);
+            border-radius: var(--vita-border-radius-md);
+            box-shadow: var(--vita-shadow-sm);
+        }
+
+        .component-group {
+            margin-bottom: var(--vita-spacing-6);
+        }
+
+        .component-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--vita-spacing-4);
+            align-items: center;
+            margin-bottom: var(--vita-spacing-4);
+        }
+
+        .demo-input-group {
+            margin-bottom: var(--vita-spacing-4);
+        }
+
+        .radius-demo {
+            width: 80px;
+            height: 80px;
+            background-color: var(--vita-color-brand-primary);
+            display: inline-block;
+            margin: var(--vita-spacing-2);
+        }
+
+        .shadow-demo {
+            width: 120px;
+            height: 80px;
+            background-color: var(--vita-color-surface-main);
+            margin: var(--vita-spacing-4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--vita-font-size-sm);
+            font-weight: var(--vita-font-weight-medium);
+        }
+
+        /* Use Cases Styles */
+        .use-case-example {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--vita-spacing-6);
+            margin-bottom: var(--vita-spacing-6);
+            align-items: start;
+        }
+
+        .use-case-mockup {
+            background-color: var(--vita-color-surface-container);
+            border-radius: var(--vita-border-radius-md);
+            padding: var(--vita-spacing-4);
+            border: 1px solid var(--vita-color-outline-variant);
+        }
+
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            gap: var(--vita-spacing-3);
+            margin-bottom: var(--vita-spacing-4);
+            padding-bottom: var(--vita-spacing-3);
+            border-bottom: 1px solid var(--vita-color-outline-variant);
+        }
+
+        .mockup-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--vita-spacing-2);
+            margin-bottom: var(--vita-spacing-3);
+        }
+
+        .mockup-photo {
+            aspect-ratio: 1;
+            background-color: var(--vita-color-surface-variant);
+            border-radius: var(--vita-border-radius-xs);
+            position: relative;
+        }
+
+        .mockup-photo::after {
+            content: '📷';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+        }
+
+        .mockup-sensors {
+            display: flex;
+            flex-direction: column;
+            gap: var(--vita-spacing-1);
+            margin-top: var(--vita-spacing-2);
+        }
+
+        .sensor-reading {
+            font-family: 'Courier New', monospace;
+            font-size: var(--vita-font-size-xs);
+            color: var(--vita-color-text-on-surface-variant);
+            background-color: var(--vita-color-surface-variant);
+            padding: var(--vita-spacing-1) var(--vita-spacing-2);
+            border-radius: var(--vita-border-radius-xs);
+        }
+
+        .mockup-workflow {
+            display: flex;
+            flex-direction: column;
+            gap: var(--vita-spacing-3);
+            margin-bottom: var(--vita-spacing-4);
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            gap: var(--vita-spacing-2);
+            padding: var(--vita-spacing-2);
+            border-radius: var(--vita-border-radius-xs);
+        }
+
+        .workflow-step.completed {
+            background-color: var(--vita-color-semantic-success);
+            color: white;
+        }
+
+        .workflow-step.active {
+            background-color: var(--vita-color-brand-primary);
+            color: white;
+        }
+
+        .workflow-step.pending {
+            background-color: var(--vita-color-surface-variant);
+            color: var(--vita-color-text-on-surface-variant);
+        }
+
+        .mockup-actions {
+            display: flex;
+            gap: var(--vita-spacing-2);
+            justify-content: flex-end;
+        }
+
+        .mockup-ai-analysis {
+            background-color: var(--vita-color-surface-variant);
+            border-radius: var(--vita-border-radius-sm);
+            padding: var(--vita-spacing-4);
+        }
+
+        .ai-confidence {
+            display: flex;
+            align-items: center;
+            gap: var(--vita-spacing-3);
+            margin-bottom: var(--vita-spacing-3);
+        }
+
+        .confidence-label {
+            font-weight: var(--vita-font-weight-medium);
+            min-width: 120px;
+        }
+
+        .confidence-bar {
+            flex: 1;
+            height: 8px;
+            background-color: var(--vita-color-surface-container);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background-color: var(--vita-color-semantic-success);
+            transition: width 0.3s ease;
+        }
+
+        .confidence-value {
+            font-weight: var(--vita-font-weight-bold);
+            color: var(--vita-color-semantic-success);
+        }
+
+        .ai-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--vita-spacing-2);
+        }
+
+        .ai-tag {
+            padding: var(--vita-spacing-1) var(--vita-spacing-2);
+            border-radius: var(--vita-border-radius-xs);
+            font-family: var(--vita-font-family-display);
+            font-size: var(--vita-font-size-xs);
+            font-weight: var(--vita-font-weight-medium);
+        }
+
+        .ai-tag.critical {
+            background-color: var(--vita-color-semantic-error);
+            color: white;
+        }
+
+        .ai-tag.warning {
+            background-color: var(--vita-color-semantic-warning);
+            color: white;
+        }
+
+        .ai-tag.info {
+            background-color: var(--vita-color-semantic-info);
+            color: white;
+        }
+
+        .use-case-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--vita-spacing-2);
+            margin-top: var(--vita-spacing-3);
+        }
+
+        .feature-tag {
+            background-color: var(--vita-color-brand-primary);
+            color: white;
+            padding: var(--vita-spacing-1) var(--vita-spacing-3);
+            border-radius: var(--vita-border-radius-sm);
+            font-family: var(--vita-font-family-display);
+            font-size: var(--vita-font-size-xs);
+            font-weight: var(--vita-font-weight-medium);
+        }
+
+        .universal-use-case {
+            background-color: var(--vita-color-surface-container);
+            padding: var(--vita-spacing-6);
+            border-radius: var(--vita-border-radius-md);
+            text-align: center;
+        }
+
+        .use-case-icon {
+            margin-bottom: var(--vita-spacing-3);
+        }
+
+        .use-case-icon .material-icons {
+            font-size: 48px;
+            color: var(--vita-color-brand-primary);
+        }
+
+        .use-case-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--vita-spacing-2);
+            justify-content: center;
+            margin-top: var(--vita-spacing-3);
+        }
+
+        .component-tag {
+            background-color: var(--vita-color-surface-variant);
+            color: var(--vita-color-text-on-surface-variant);
+            padding: var(--vita-spacing-1) var(--vita-spacing-2);
+            border-radius: var(--vita-border-radius-xs);
+            font-family: var(--vita-font-family-display);
+            font-size: var(--vita-font-size-xs);
+            font-weight: var(--vita-font-weight-medium);
+        }
+
+        .implementation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--vita-spacing-4);
+        }
+
+        .guideline-card {
+            background-color: var(--vita-color-surface-container);
+            padding: var(--vita-spacing-4);
+            border-radius: var(--vita-border-radius-md);
+            border-left: 4px solid var(--vita-color-brand-primary);
+        }
+
+        @media (max-width: 768px) {
+            .use-case-example {
+                grid-template-columns: 1fr;
+            }
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+        }
+
+        .spacing-demo {
+            background-color: var(--vita-color-brand-primary);
+            color: var(--vita-color-text-on-primary);
+            text-align: center;
+            font-size: var(--vita-font-size-xs);
+            font-weight: var(--vita-font-weight-medium);
+            border-radius: var(--vita-border-radius-xs);
+        }
+
+        .code-snippet {
+            background-color: var(--vita-color-surface-variant);
+            padding: var(--vita-spacing-3);
+            border-radius: var(--vita-border-radius-xs);
+            font-family: 'Courier New', monospace;
+            font-size: var(--vita-font-size-sm);
+            margin-top: var(--vita-spacing-2);
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: var(--vita-spacing-4);
+            }
+
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+
+            .component-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .grid-2, .grid-3, .grid-4, .grid-5 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h1 class="vita-text-headline-medium">ViTA Design System</h1>
+            <p class="vita-text-body-medium">Interactive UI Kit & Style Guide</p>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <span class="material-icons" id="theme-icon">dark_mode</span>
+            <span id="theme-text">Dark Mode</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showScreen('colors')">Colors</button>
+            <button class="nav-tab" onclick="showScreen('typography')">Typography</button>
+            <button class="nav-tab" onclick="showScreen('components')">Components</button>
+            <button class="nav-tab" onclick="showScreen('usecases')">Use Cases</button>
+        </nav>
+
+        <!-- COLORS SCREEN -->
+        <div id="colors" class="screen active">
+            <!-- Brand Colors -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Brand Colors</h2>
+                <div class="grid grid-4">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-brand-primary);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary</div>
+                            <div class="color-value">--vita-color-brand-primary</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-brand-primary-container);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary Container</div>
+                            <div class="color-value">--vita-color-brand-primary-container</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-brand-secondary);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Secondary</div>
+                            <div class="color-value">--vita-color-brand-secondary</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-brand-tertiary);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Tertiary</div>
+                            <div class="color-value">--vita-color-brand-tertiary</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Surface Colors -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Surface Colors</h2>
+                <div class="grid grid-5">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-surface-background);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Background</div>
+                            <div class="color-value">--vita-color-surface-background</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-surface-container-lowest);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Container Lowest</div>
+                            <div class="color-value">--vita-color-surface-container-lowest</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-surface-container-low);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Container Low</div>
+                            <div class="color-value">--vita-color-surface-container-low</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-surface-container);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Container</div>
+                            <div class="color-value">--vita-color-surface-container</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-surface-container-high);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Container High</div>
+                            <div class="color-value">--vita-color-surface-container-high</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Semantic Colors -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Semantic Colors</h2>
+                <div class="grid grid-4">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-semantic-error);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Error</div>
+                            <div class="color-value">--vita-color-semantic-error</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-semantic-success);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Success</div>
+                            <div class="color-value">--vita-color-semantic-success</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-semantic-warning);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Warning</div>
+                            <div class="color-value">--vita-color-semantic-warning</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-semantic-info);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Info</div>
+                            <div class="color-value">--vita-color-semantic-info</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Functional Colors -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Functional Colors</h2>
+                <div class="grid grid-4">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-functional-offline-indicator);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Offline Indicator</div>
+                            <div class="color-value">--vita-color-functional-offline-indicator</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-functional-online-indicator);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Online Indicator</div>
+                            <div class="color-value">--vita-color-functional-online-indicator</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-functional-sync-progress);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Sync Progress</div>
+                            <div class="color-value">--vita-color-functional-sync-progress</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background-color: var(--vita-color-functional-edit-action);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Edit Action</div>
+                            <div class="color-value">--vita-color-functional-edit-action</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- TYPOGRAPHY SCREEN -->
+        <div id="typography" class="screen">
+            <!-- Display Styles -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Display Styles</h2>
+                <div class="text-example">
+                    <div class="vita-text-display-large">Display Large</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Poppins, 57px, Weight 900, Line Height 1.2
+                    </div>
+                    <div class="code-snippet">.vita-text-display-large</div>
+                </div>
+                <div class="text-example">
+                    <div class="vita-text-display-medium">Display Medium</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Poppins, 45px, Weight 800, Line Height 1.2
+                    </div>
+                    <div class="code-snippet">.vita-text-display-medium</div>
+                </div>
+                <div class="text-example">
+                    <div class="vita-text-display-small">Display Small</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Poppins, 36px, Weight 700, Line Height 1.2
+                    </div>
+                    <div class="code-snippet">.vita-text-display-small</div>
+                </div>
+            </section>
+
+            <!-- Headline Styles -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Headline Styles</h2>
+                <div class="text-example">
+                    <div class="vita-text-headline-large">Headline Large</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Poppins, 32px, Weight 600, Line Height 1.3
+                    </div>
+                    <div class="code-snippet">.vita-text-headline-large</div>
+                </div>
+                <div class="text-example">
+                    <div class="vita-text-headline-medium">Headline Medium</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Poppins, 28px, Weight 600, Line Height 1.3
+                    </div>
+                    <div class="code-snippet">.vita-text-headline-medium</div>
+                </div>
+                <div class="text-example">
+                    <div class="vita-text-headline-small">Headline Small</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Poppins, 24px, Weight 600, Line Height 1.3
+                    </div>
+                    <div class="code-snippet">.vita-text-headline-small</div>
+                </div>
+            </section>
+
+            <!-- Body Styles -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Body Styles</h2>
+                <div class="text-example">
+                    <div class="vita-text-body-large">Body Large - This is the main text style used for primary content. It provides good readability and is comfortable for extended reading.</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Heebo, 16px, Weight 400, Line Height 1.4
+                    </div>
+                    <div class="code-snippet">.vita-text-body-large</div>
+                </div>
+                <div class="text-example">
+                    <div class="vita-text-body-medium">Body Medium - This is used for secondary content and descriptions. It's slightly smaller but still highly readable.</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Heebo, 14px, Weight 400, Line Height 1.4
+                    </div>
+                    <div class="code-snippet">.vita-text-body-medium</div>
+                </div>
+                <div class="text-example">
+                    <div class="vita-text-body-small">Body Small - Used for auxiliary text, metadata, and small details that don't need prominent visibility.</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Heebo, 12px, Weight 400, Line Height 1.4
+                    </div>
+                    <div class="code-snippet">.vita-text-body-small</div>
+                </div>
+            </section>
+
+            <!-- Label Styles -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Label Styles</h2>
+                <div class="text-example">
+                    <div class="vita-text-label-large">Label Large</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Poppins, 14px, Weight 500, Line Height 1.4 - Used for button text
+                    </div>
+                    <div class="code-snippet">.vita-text-label-large</div>
+                </div>
+                <div class="text-example">
+                    <div class="vita-text-label-medium">Label Medium</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Poppins, 12px, Weight 500, Line Height 1.4 - Used for form labels
+                    </div>
+                    <div class="code-snippet">.vita-text-label-medium</div>
+                </div>
+                <div class="text-example">
+                    <div class="vita-text-label-small">Label Small</div>
+                    <div class="vita-text-body-small" style="margin-top: var(--vita-spacing-2);">
+                        Poppins, 11px, Weight 500, Line Height 1.4 - Used for small labels
+                    </div>
+                    <div class="code-snippet">.vita-text-label-small</div>
+                </div>
+            </section>
+
+            <!-- Font Families -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Font Families</h2>
+                <div class="grid grid-2">
+                    <div class="component-showcase">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Heebo (Body Font)</h3>
+                        <div style="font-family: var(--vita-font-family-body); margin-bottom: var(--vita-spacing-3);">
+                            <div style="font-size: 24px; font-weight: 400;">Regular 400</div>
+                            <div style="font-size: 24px; font-weight: 500;">Medium 500</div>
+                            <div style="font-size: 24px; font-weight: 600;">Semibold 600</div>
+                            <div style="font-size: 24px; font-weight: 700;">Bold 700</div>
+                        </div>
+                        <div class="code-snippet">font-family: var(--vita-font-family-body);</div>
+                    </div>
+                    <div class="component-showcase">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Poppins (Display Font)</h3>
+                        <div style="font-family: var(--vita-font-family-display); margin-bottom: var(--vita-spacing-3);">
+                            <div style="font-size: 24px; font-weight: 400;">Regular 400</div>
+                            <div style="font-size: 24px; font-weight: 500;">Medium 500</div>
+                            <div style="font-size: 24px; font-weight: 600;">Semibold 600</div>
+                            <div style="font-size: 24px; font-weight: 700;">Bold 700</div>
+                            <div style="font-size: 24px; font-weight: 800;">Extrabold 800</div>
+                            <div style="font-size: 24px; font-weight: 900;">Black 900</div>
+                        </div>
+                        <div class="code-snippet">font-family: var(--vita-font-family-display);</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- COMPONENTS SCREEN -->
+        <div id="components" class="screen">
+            <!-- Buttons -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Buttons</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Button Types</h3>
+                        <div class="component-row">
+                            <button class="vita-button vita-button-primary">Primary Button</button>
+                            <button class="vita-button vita-button-secondary">Secondary Button</button>
+                            <button class="vita-button vita-button-edit">Edit Action</button>
+                            <button class="vita-button vita-button-delete">Delete Action</button>
+                        </div>
+                        <div class="code-snippet">
+&lt;button class="vita-button vita-button-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="vita-button vita-button-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="vita-button vita-button-edit"&gt;Edit&lt;/button&gt;
+&lt;button class="vita-button vita-button-delete"&gt;Delete&lt;/button&gt;
+                        </div>
+                    </div>
+
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Action Buttons (Fixed Width)</h3>
+                        <div class="component-row">
+                            <button class="vita-button vita-button-primary vita-button-action">Primary Action</button>
+                            <button class="vita-button vita-button-edit vita-button-action">Edit</button>
+                            <button class="vita-button vita-button-delete vita-button-action">Delete</button>
+                        </div>
+                        <div class="code-snippet">&lt;button class="vita-button vita-button-primary vita-button-action"&gt;Action&lt;/button&gt;</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Form Inputs -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Form Inputs</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Input Fields</h3>
+                        <div class="grid grid-2">
+                            <div class="demo-input-group">
+                                <label class="vita-input-label">Default Input</label>
+                                <input type="text" class="vita-input" placeholder="Enter value">
+                            </div>
+                            <div class="demo-input-group">
+                                <label class="vita-input-label">Focused Input</label>
+                                <input type="text" class="vita-input" placeholder="This input is focused" style="border-color: var(--vita-color-brand-primary); border-width: 2px;">
+                            </div>
+                            <div class="demo-input-group">
+                                <label class="vita-input-label">Error Input</label>
+                                <input type="text" class="vita-input error" placeholder="This has an error" value="Invalid value">
+                            </div>
+                            <div class="demo-input-group">
+                                <label class="vita-input-label">Disabled Input</label>
+                                <input type="text" class="vita-input" placeholder="Disabled input" disabled>
+                            </div>
+                        </div>
+                        <div class="code-snippet">
+&lt;label class="vita-input-label"&gt;Field Label&lt;/label&gt;
+&lt;input type="text" class="vita-input" placeholder="Enter value"&gt;
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cards and Containers -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Cards & Containers</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Card Examples</h3>
+                        <div class="grid grid-3">
+                            <div class="vita-card">
+                                <h4 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-2);">Basic Card</h4>
+                                <p class="vita-text-body-medium">This is a basic card with standard padding and shadow.</p>
+                            </div>
+                            <div class="vita-card vita-p-6">
+                                <h4 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-2);">Enhanced Card</h4>
+                                <p class="vita-text-body-medium">This card has extra padding using utility classes.</p>
+                            </div>
+                            <div class="vita-card">
+                                <h4 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-2);">Status Card</h4>
+                                <p class="vita-text-body-medium" style="margin-bottom: var(--vita-spacing-3);">Card with status badge</p>
+                                <span class="vita-status-badge vita-status-badge-success">Completed</span>
+                            </div>
+                        </div>
+                        <div class="code-snippet">&lt;div class="vita-card"&gt;Card content&lt;/div&gt;</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Status Badges -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Status Badges</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Badge Types</h3>
+                        <div class="component-row">
+                            <span class="vita-status-badge vita-status-badge-success">Success</span>
+                            <span class="vita-status-badge vita-status-badge-error">Error</span>
+                            <span class="vita-status-badge vita-status-badge-warning">Warning</span>
+                            <span class="vita-status-badge" style="background-color: var(--vita-color-semantic-info);">Info</span>
+                        </div>
+                        <div class="code-snippet">
+&lt;span class="vita-status-badge vita-status-badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="vita-status-badge vita-status-badge-error"&gt;Error&lt;/span&gt;
+&lt;span class="vita-status-badge vita-status-badge-warning"&gt;Warning&lt;/span&gt;
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Indicators -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Progress Indicators</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Linear Progress</h3>
+                        <div style="margin-bottom: var(--vita-spacing-4);">
+                            <div class="vita-text-body-medium" style="margin-bottom: var(--vita-spacing-2);">25% Complete</div>
+                            <div class="vita-progress-linear">
+                                <div class="vita-progress-linear-fill" style="width: 25%;"></div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: var(--vita-spacing-4);">
+                            <div class="vita-text-body-medium" style="margin-bottom: var(--vita-spacing-2);">75% Complete</div>
+                            <div class="vita-progress-linear">
+                                <div class="vita-progress-linear-fill" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="code-snippet">
+&lt;div class="vita-progress-linear"&gt;
+    &lt;div class="vita-progress-linear-fill" style="width: 75%;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Border Radius -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Border Radius</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Radius Scale</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: var(--vita-spacing-4); align-items: center;">
+                            <div style="text-align: center;">
+                                <div class="radius-demo vita-rounded-xs"></div>
+                                <div class="vita-text-label-small">XS (4px)</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div class="radius-demo vita-rounded-sm"></div>
+                                <div class="vita-text-label-small">SM (8px)</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div class="radius-demo vita-rounded-md"></div>
+                                <div class="vita-text-label-small">MD (12px)</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div class="radius-demo vita-rounded-lg"></div>
+                                <div class="vita-text-label-small">LG (24px)</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div class="radius-demo vita-rounded-full" style="border-radius: 50%;"></div>
+                                <div class="vita-text-label-small">Full</div>
+                            </div>
+                        </div>
+                        <div class="code-snippet">
+.vita-rounded-xs { border-radius: 4px; }
+.vita-rounded-sm { border-radius: 8px; }
+.vita-rounded-md { border-radius: 12px; }
+.vita-rounded-lg { border-radius: 24px; }
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Shadows -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Shadows & Elevation</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Shadow Scale</h3>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                            <div class="shadow-demo vita-shadow-sm vita-rounded-md">
+                                <div>Small</div>
+                                <div class="vita-text-label-small">Cards</div>
+                            </div>
+                            <div class="shadow-demo vita-shadow-md vita-rounded-md">
+                                <div>Medium</div>
+                                <div class="vita-text-label-small">Dialogs</div>
+                            </div>
+                            <div class="shadow-demo vita-shadow-lg vita-rounded-md">
+                                <div>Large</div>
+                                <div class="vita-text-label-small">Elevation</div>
+                            </div>
+                        </div>
+                        <div class="code-snippet">
+.vita-shadow-sm { box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.12); }
+.vita-shadow-md { box-shadow: 0px 4px 12px 4px rgba(0, 0, 0, 0.12); }
+.vita-shadow-lg { box-shadow: 0px 8px 16px 6px rgba(0, 0, 0, 0.26); }
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spacing -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Spacing System</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Spacing Scale (4px Grid)</h3>
+                        <div style="display: flex; flex-direction: column; gap: var(--vita-spacing-2);">
+                            <div style="display: flex; align-items: center; gap: var(--vita-spacing-4);">
+                                <div class="spacing-demo vita-p-1" style="width: 4px; height: 20px;"></div>
+                                <span class="vita-text-label-medium">1 = 4px</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--vita-spacing-4);">
+                                <div class="spacing-demo vita-p-1" style="width: 8px; height: 20px;"></div>
+                                <span class="vita-text-label-medium">2 = 8px</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--vita-spacing-4);">
+                                <div class="spacing-demo vita-p-1" style="width: 12px; height: 20px;"></div>
+                                <span class="vita-text-label-medium">3 = 12px</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--vita-spacing-4);">
+                                <div class="spacing-demo vita-p-1" style="width: 16px; height: 20px;"></div>
+                                <span class="vita-text-label-medium">4 = 16px (Standard)</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--vita-spacing-4);">
+                                <div class="spacing-demo vita-p-1" style="width: 24px; height: 20px;"></div>
+                                <span class="vita-text-label-medium">6 = 24px (Sections)</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--vita-spacing-4);">
+                                <div class="spacing-demo vita-p-1" style="width: 32px; height: 20px;"></div>
+                                <span class="vita-text-label-medium">8 = 32px (Major sections)</span>
+                            </div>
+                        </div>
+                        <div class="code-snippet">
+.vita-p-4 { padding: 16px; }
+.vita-mx-6 { margin-left: 24px; margin-right: 24px; }
+.vita-my-8 { margin-top: 32px; margin-bottom: 32px; }
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Special Components -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">ViTA Specific Components</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Offline Indicator</h3>
+                        <div style="position: relative; height: 120px; background-color: var(--vita-color-surface-variant); border-radius: var(--vita-border-radius-md); overflow: hidden;">
+                            <div class="vita-offline-indicator">
+                                <div class="vita-offline-indicator-icon material-icons">wifi_off</div>
+                                <div>Offline</div>
+                            </div>
+                        </div>
+                        <div class="code-snippet">&lt;div class="vita-offline-indicator"&gt;...&lt;/div&gt;</div>
+                    </div>
+
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Photo Container</h3>
+                        <div class="grid grid-2">
+                            <div class="vita-photo-container" style="height: 200px;">
+                                <div class="vita-photo-placeholder">
+                                    <div class="vita-photo-placeholder-icon material-icons">camera_alt</div>
+                                    <div class="vita-text-body-medium">Tap to take photo</div>
+                                </div>
+                            </div>
+                            <div class="vita-photo-container error" style="height: 200px;">
+                                <div class="vita-photo-placeholder">
+                                    <div class="vita-photo-placeholder-icon material-icons">error</div>
+                                    <div class="vita-text-body-medium">Photo required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-snippet">&lt;div class="vita-photo-container"&gt;...&lt;/div&gt;</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- USE CASES SCREEN -->
+        <div id="usecases" class="screen">
+            <!-- ViTA Application Use Cases -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">ViTA Application Use Cases</h2>
+                <div class="component-showcase">
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Data Collection & Monitoring</h3>
+                        <div class="use-case-example">
+                            <div class="use-case-mockup">
+                                <div class="mockup-header">
+                                    <span class="material-icons">location_on</span>
+                                    <span class="vita-text-label-large">Field Inspection</span>
+                                    <span class="vita-status-badge vita-status-badge-success">Active</span>
+                                </div>
+                                <div class="mockup-content">
+                                    <div class="mockup-photo-grid">
+                                        <div class="mockup-photo"></div>
+                                        <div class="mockup-photo"></div>
+                                        <div class="mockup-photo"></div>
+                                    </div>
+                                    <div class="mockup-form">
+                                        <input class="vita-input" placeholder="Observation notes..." readonly>
+                                        <div class="mockup-sensors">
+                                            <span class="sensor-reading vita-text-label-small">GPS: 40.7128°N, 74.0060°W</span>
+                                            <span class="sensor-reading vita-text-label-small">Temp: 23°C</span>
+                                            <span class="sensor-reading vita-text-label-small">Humidity: 65%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="use-case-description">
+                                <h4 class="vita-text-headline-small">Field Data Collection</h4>
+                                <p class="vita-text-body-medium">Inspectors collect visual evidence, sensor data, and location information in real-time. The offline-first architecture ensures data capture even without connectivity.</p>
+                                <div class="use-case-features">
+                                    <span class="feature-tag">📸 Photo Capture</span>
+                                    <span class="feature-tag">📍 GPS Tracking</span>
+                                    <span class="feature-tag">📊 Sensor Data</span>
+                                    <span class="feature-tag">🔄 Offline Sync</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">Process Management</h3>
+                        <div class="use-case-example">
+                            <div class="use-case-mockup">
+                                <div class="mockup-workflow">
+                                    <div class="workflow-step completed">
+                                        <span class="material-icons">check_circle</span>
+                                        <span class="vita-text-body-large">Site Assessment</span>
+                                    </div>
+                                    <div class="workflow-step completed">
+                                        <span class="material-icons">check_circle</span>
+                                        <span class="vita-text-body-large">Data Collection</span>
+                                    </div>
+                                    <div class="workflow-step active">
+                                        <span class="material-icons">radio_button_checked</span>
+                                        <span class="vita-text-body-large">Quality Review</span>
+                                    </div>
+                                    <div class="workflow-step pending">
+                                        <span class="material-icons">radio_button_unchecked</span>
+                                        <span class="vita-text-body-large">Report Generation</span>
+                                    </div>
+                                </div>
+                                <div class="mockup-actions">
+                                    <button class="vita-button vita-button-primary vita-button-action">Continue</button>
+                                    <button class="vita-button vita-button-edit vita-button-action">Edit</button>
+                                </div>
+                            </div>
+                            <div class="use-case-description">
+                                <h4 class="vita-text-headline-small">Workflow Automation</h4>
+                                <p class="vita-text-body-medium">Guided workflows ensure consistent data collection processes across different inspection types and locations.</p>
+                                <div class="use-case-features">
+                                    <span class="feature-tag vita-text-label-small">📋 Step-by-step Guidance</span>
+                                    <span class="feature-tag vita-text-label-small">✅ Quality Checkpoints</span>
+                                    <span class="feature-tag vita-text-label-small">🔄 Process Validation</span>
+                                    <span class="feature-tag vita-text-label-small">📈 Progress Tracking</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component-group">
+                        <h3 class="vita-text-headline-small" style="margin-bottom: var(--vita-spacing-4);">AI-Powered Analysis</h3>
+                        <div class="use-case-example">
+                            <div class="use-case-mockup">
+                                <div class="mockup-ai-analysis">
+                                    <div class="ai-result">
+                                        <div class="ai-confidence">
+                                            <span class="confidence-label vita-text-label-medium">Defect Detection</span>
+                                            <div class="confidence-bar">
+                                                <div class="confidence-fill" style="width: 94%;"></div>
+                                            </div>
+                                            <span class="confidence-value vita-text-label-large">94%</span>
+                                        </div>
+                                        <div class="ai-tags">
+                                            <span class="ai-tag critical vita-text-label-small">Structural Crack</span>
+                                            <span class="ai-tag warning vita-text-label-small">Surface Wear</span>
+                                            <span class="ai-tag info vita-text-label-small">Documentation Needed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="use-case-description">
+                                <h4 class="vita-text-headline-small">Automated Image Recognition</h4>
+                                <p class="vita-text-body-medium">AI algorithms analyze captured images to detect defects, anomalies, and points of interest, providing instant insights and recommendations.</p>
+                                <div class="use-case-features">
+                                    <span class="feature-tag">🤖 ML-powered Detection</span>
+                                    <span class="feature-tag">⚡ Real-time Analysis</span>
+                                    <span class="feature-tag">🎯 Defect Classification</span>
+                                    <span class="feature-tag">📊 Confidence Scoring</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Universal Use Cases -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Universal Application Use Cases</h2>
+                <div class="component-showcase">
+                    <div class="grid grid-2">
+                        <div class="universal-use-case">
+                            <div class="use-case-icon">
+                                <span class="material-icons">apartment</span>
+                            </div>
+                            <h4 class="vita-text-headline-small">Enterprise Resource Planning</h4>
+                            <p class="vita-text-body-medium">Complex dashboards with multiple data views, real-time updates, and hierarchical navigation patterns.</p>
+                            <div class="use-case-components">
+                                <span class="component-tag vita-text-label-small">Data Tables</span>
+                                <span class="component-tag vita-text-label-small">Navigation Drawer</span>
+                                <span class="component-tag vita-text-label-small">Status Indicators</span>
+                                <span class="component-tag vita-text-label-small">Progress Tracking</span>
+                            </div>
+                        </div>
+
+                        <div class="universal-use-case">
+                            <div class="use-case-icon">
+                                <span class="material-icons">health_and_safety</span>
+                            </div>
+                            <h4 class="vita-text-headline-small">Healthcare Applications</h4>
+                            <p class="vita-text-body-medium">Patient data entry, medical forms, and critical status monitoring with accessibility requirements.</p>
+                            <div class="use-case-components">
+                                <span class="component-tag vita-text-label-small">Form Validation</span>
+                                <span class="component-tag vita-text-label-small">Critical Alerts</span>
+                                <span class="component-tag vita-text-label-small">Secure Input</span>
+                                <span class="component-tag vita-text-label-small">Offline Storage</span>
+                            </div>
+                        </div>
+
+                        <div class="universal-use-case">
+                            <div class="use-case-icon">
+                                <span class="material-icons">school</span>
+                            </div>
+                            <h4 class="vita-text-headline-small">Educational Platforms</h4>
+                            <p class="vita-text-body-medium">Student portals, assessment tools, and learning management systems with multimedia content.</p>
+                            <div class="use-case-components">
+                                <span class="component-tag vita-text-label-small">Media Upload</span>
+                                <span class="component-tag vita-text-label-small">Progress Bars</span>
+                                <span class="component-tag vita-text-label-small">Achievement Badges</span>
+                                <span class="component-tag vita-text-label-small">Interactive Forms</span>
+                            </div>
+                        </div>
+
+                        <div class="universal-use-case">
+                            <div class="use-case-icon">
+                                <span class="material-icons">inventory</span>
+                            </div>
+                            <h4 class="vita-text-headline-small">Inventory Management</h4>
+                            <p class="vita-text-body-medium">Stock tracking, barcode scanning, and warehouse management with real-time synchronization.</p>
+                            <div class="use-case-components">
+                                <span class="component-tag vita-text-label-small">Scan Interface</span>
+                                <span class="component-tag vita-text-label-small">Quantity Controls</span>
+                                <span class="component-tag vita-text-label-small">Location Tags</span>
+                                <span class="component-tag vita-text-label-small">Sync Status</span>
+                            </div>
+                        </div>
+
+                        <div class="universal-use-case">
+                            <div class="use-case-icon">
+                                <span class="material-icons">analytics</span>
+                            </div>
+                            <h4 class="vita-text-headline-small">Business Intelligence</h4>
+                            <p class="vita-text-body-medium">Analytics dashboards, report generation, and data visualization tools with export capabilities.</p>
+                            <div class="use-case-components">
+                                <span class="component-tag vita-text-label-small">Chart Components</span>
+                                <span class="component-tag vita-text-label-small">Filter Controls</span>
+                                <span class="component-tag vita-text-label-small">Export Buttons</span>
+                                <span class="component-tag vita-text-label-small">Date Pickers</span>
+                            </div>
+                        </div>
+
+                        <div class="universal-use-case">
+                            <div class="use-case-icon">
+                                <span class="material-icons">support_agent</span>
+                            </div>
+                            <h4 class="vita-text-headline-small">Customer Support</h4>
+                            <p class="vita-text-body-medium">Ticket management, live chat interfaces, and knowledge base systems with priority handling.</p>
+                            <div class="use-case-components">
+                                <span class="component-tag vita-text-label-small">Priority Badges</span>
+                                <span class="component-tag vita-text-label-small">Chat Bubbles</span>
+                                <span class="component-tag vita-text-label-small">Search Bars</span>
+                                <span class="component-tag vita-text-label-small">Action Buttons</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Implementation Guidelines -->
+            <section class="section">
+                <h2 class="vita-text-headline-small section-title">Implementation Guidelines</h2>
+                <div class="component-showcase">
+                    <div class="implementation-grid">
+                        <div class="guideline-card">
+                            <h4 class="vita-text-headline-small">Responsive Design</h4>
+                            <p class="vita-text-body-medium">All components scale appropriately across device sizes using the 4px spacing grid and flexible typography system.</p>
+                            <div class="code-snippet">
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+                            </div>
+                        </div>
+
+                        <div class="guideline-card">
+                            <h4 class="vita-text-headline-small">Accessibility First</h4>
+                            <p class="vita-text-body-medium">WCAG 2.1 AA compliance with proper color contrast, focus indicators, and semantic markup for screen readers.</p>
+                            <div class="code-snippet">
+/* Accessible focus states */
+.vita-button:focus {
+  outline: 2px solid var(--vita-color-brand-primary);
+  outline-offset: 2px;
+}
+                            </div>
+                        </div>
+
+                        <div class="guideline-card">
+                            <h4 class="vita-text-headline-small">Performance Optimization</h4>
+                            <p class="vita-text-body-medium">Efficient loading patterns, image optimization, and progressive enhancement for optimal user experience.</p>
+                            <div class="code-snippet">
+/* Optimized animations */
+.component {
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+                            </div>
+                        </div>
+
+                        <div class="guideline-card">
+                            <h4 class="vita-text-headline-small">Theme Consistency</h4>
+                            <p class="vita-text-body-medium">Consistent application of design tokens across all components ensures visual harmony and brand alignment.</p>
+                            <div class="code-snippet">
+/* Token usage example */
+.custom-component {
+  color: var(--vita-color-text-on-surface);
+  padding: var(--vita-spacing-4);
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function showScreen(screenId) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected screen
+            document.getElementById(screenId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            console.log('Before toggle - Current theme:', html.getAttribute('data-theme'));
+            console.log('HTML element:', html);
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                html.setAttribute('data-theme', 'light'); // Explicitly set light
+                if (themeIcon) themeIcon.textContent = 'light_mode';
+                if (themeText) themeText.textContent = 'Light Mode';
+                console.log('Switched to light mode');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                if (themeIcon) themeIcon.textContent = 'dark_mode';
+                if (themeText) themeText.textContent = 'Dark Mode';
+                console.log('Switched to dark mode');
+            }
+            
+            console.log('After toggle - New theme:', html.getAttribute('data-theme'));
+            console.log('Body background color:', getComputedStyle(document.body).backgroundColor);
+        }
+
+        // Initialize theme when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            console.log('DOM loaded, initializing theme...');
+            console.log('Theme icon element:', themeIcon);
+            console.log('Theme text element:', themeText);
+            
+            // Auto-detect system theme preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (themeIcon) themeIcon.textContent = 'dark_mode';
+                if (themeText) themeText.textContent = 'Dark Mode';
+                console.log('Auto-detected dark theme');
+            } else {
+                // Ensure light theme is default
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (themeIcon) themeIcon.textContent = 'light_mode';
+                if (themeText) themeText.textContent = 'Light Mode';
+                console.log('Auto-detected light theme');
+            }
+            
+            console.log('Final theme after init:', document.documentElement.getAttribute('data-theme'));
+        });
+    </script>
+</body>
+</html>

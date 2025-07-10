@@ -1,0 +1,99 @@
+{
+  "name": "@percepthor/vita-design-system",
+  "version": "1.0.0",
+  "description": "A comprehensive design system built on Material Design 3 principles for modern web and mobile applications",
+  "main": "DESIGN_TOKENS.css",
+  "files": [
+    "DESIGN_TOKENS.css",
+    "FIGMA_DESIGN_TOKENS.json",
+    "index.html",
+    "README.md",
+    "GETTING_STARTED.md",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "design-system",
+    "css",
+    "design-tokens",
+    "material-design",
+    "ui-kit",
+    "components",
+    "theming",
+    "accessibility",
+    "responsive",
+    "vita"
+  ],
+  "author": {
+    "name": "ViTA Design Team",
+    "organization": "Percepthor"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/percepthor/vita-design-system"
+  },
+  "bugs": {
+    "url": "https://github.com/percepthor/vita-design-system/issues"
+  },
+  "homepage": "https://github.com/percepthor/vita-design-system#readme",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
+    "demo": "open index.html"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "designSystem": {
+    "version": "1.0.0",
+    "tokens": {
+      "css": "DESIGN_TOKENS.css",
+      "figma": "FIGMA_DESIGN_TOKENS.json"
+    },
+    "documentation": {
+      "interactive": "index.html",
+      "readme": "README.md",
+      "gettingStarted": "GETTING_STARTED.md"
+    },
+    "features": [
+      "light-dark-theme",
+      "responsive-design",
+      "accessibility-wcag-aa",
+      "material-design-3",
+      "css-custom-properties"
+    ],
+    "fonts": [
+      {
+        "name": "Poppins",
+        "weights": [400, 500, 600, 700, 800, 900],
+        "usage": "display"
+      },
+      {
+        "name": "Heebo",
+        "weights": [400, 500, 600, 700],
+        "usage": "body"
+      }
+    ],
+    "colorTokens": 25,
+    "typographyTokens": 12,
+    "spacingTokens": 8,
+    "components": [
+      "buttons",
+      "inputs",
+      "badges",
+      "cards",
+      "progress",
+      "grid",
+      "containers"
+    ]
+  }
+}

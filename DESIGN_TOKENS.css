@@ -1,0 +1,759 @@
+/*
+================================================================================
+ViTA Design System - CSS Design Tokens
+================================================================================
+Version: 1.0.0
+Description: Complete design tokens for ViTA Flutter mobile application
+Usage: Import this CSS file to access consistent design tokens across web interfaces
+================================================================================
+*/
+
+/* 
+================================================================================
+ROOT VARIABLES - LIGHT THEME (DEFAULT)
+================================================================================
+*/
+:root {
+  /* ===== BRAND COLORS ===== */
+  --vita-color-brand-primary: #003965;
+  --vita-color-brand-primary-container: #275c92;
+  --vita-color-brand-secondary: #33445a;
+  --vita-color-brand-tertiary: #50245e;
+  
+  /* ===== SURFACE COLORS ===== */
+  --vita-color-surface-background: #f9f9fe;
+  --vita-color-surface-main: #f9f9fe;
+  --vita-color-surface-variant: #dee2ed;
+  --vita-color-surface-container-lowest: #ffffff;
+  --vita-color-surface-container-low: #f3f3f8;
+  --vita-color-surface-container: #ededf3;
+  --vita-color-surface-container-high: #e8e8ea;
+  --vita-color-surface-container-highest: #e2e2e7;
+  
+  /* ===== TEXT COLORS ===== */
+  --vita-color-text-on-surface: #191c1f;
+  --vita-color-text-on-surface-variant: #3e434b;
+  --vita-color-text-on-primary: #ffffff;
+  
+  /* ===== OUTLINE COLORS ===== */
+  --vita-color-outline-main: #5a5f68;
+  --vita-color-outline-variant: #767b84;
+  
+  /* ===== SEMANTIC COLORS ===== */
+  --vita-color-semantic-error: #8c0009;
+  --vita-color-semantic-error-container: #da342e;
+  --vita-color-semantic-success: #4caf50;
+  --vita-color-semantic-warning: #ff9800;
+  --vita-color-semantic-info: #2196f3;
+  
+  /* ===== FUNCTIONAL COLORS ===== */
+  --vita-color-functional-offline-indicator: #ff5722;
+  --vita-color-functional-online-indicator: #4caf50;
+  --vita-color-functional-sync-progress: #2196f3;
+  --vita-color-functional-edit-action: #e7b82d;
+  
+  /* ===== SHADOW ===== */
+  --vita-color-shadow: rgba(0, 0, 0, 0.12);
+  
+  /* ===== TYPOGRAPHY ===== */
+  --vita-font-family-body: 'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --vita-font-family-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Font Sizes */
+  --vita-font-size-xs: 11px;      /* Label Small */
+  --vita-font-size-sm: 12px;      /* Body Small, Label Medium */
+  --vita-font-size-base: 14px;    /* Body Medium, Label Large */
+  --vita-font-size-lg: 16px;      /* Body Large */
+  --vita-font-size-xl: 24px;      /* Headline Small */
+  --vita-font-size-2xl: 28px;     /* Headline Medium */
+  --vita-font-size-3xl: 32px;     /* Headline Large */
+  --vita-font-size-4xl: 36px;     /* Display Small */
+  --vita-font-size-5xl: 45px;     /* Display Medium */
+  --vita-font-size-6xl: 57px;     /* Display Large */
+  
+  /* Font Weights */
+  --vita-font-weight-normal: 400;     /* Body text */
+  --vita-font-weight-medium: 500;     /* Labels */
+  --vita-font-weight-semibold: 600;   /* Headlines */
+  --vita-font-weight-bold: 700;       /* Display Small */
+  --vita-font-weight-extrabold: 800;  /* Display Medium */
+  --vita-font-weight-black: 900;      /* Display Large */
+  
+  /* Line Heights */
+  --vita-line-height-tight: 1.2;   /* Display text */
+  --vita-line-height-snug: 1.3;    /* Headlines */
+  --vita-line-height-normal: 1.4;  /* Body text */
+  --vita-line-height-relaxed: 1.5; /* Reading text */
+  
+  /* Letter Spacing */
+  --vita-letter-spacing-tight: -0.25px;  /* Large display text */
+  --vita-letter-spacing-normal: 0px;     /* Headlines */
+  --vita-letter-spacing-wide: 0.25px;    /* Body text */
+  --vita-letter-spacing-wider: 0.5px;    /* Labels and small text */
+  
+  /* ===== SPACING ===== */
+  --vita-spacing-1: 4px;   /* Micro spacing */
+  --vita-spacing-2: 8px;   /* Small spacing */
+  --vita-spacing-3: 12px;  /* Compact spacing */
+  --vita-spacing-4: 16px;  /* Standard spacing (most common) */
+  --vita-spacing-5: 20px;  /* Medium spacing */
+  --vita-spacing-6: 24px;  /* Wide spacing (sections) */
+  --vita-spacing-8: 32px;  /* Extra wide spacing (buttons, major sections) */
+  --vita-spacing-10: 40px; /* Section spacing */
+  --vita-spacing-12: 48px; /* Large section spacing */
+  
+  /* ===== BORDER RADIUS ===== */
+  --vita-border-radius-xs: 4px;    /* Input fields */
+  --vita-border-radius-sm: 8px;    /* Buttons, status indicators */
+  --vita-border-radius-md: 12px;   /* Cards, containers (most common) */
+  --vita-border-radius-lg: 24px;   /* Bottom sheets, large containers */
+  --vita-border-radius-xl: 32px;   /* Decorative elements */
+  --vita-border-radius-full: 100px; /* Circular elements */
+  
+  /* ===== SHADOWS ===== */
+  --vita-shadow-sm: 0px 2px 8px 2px rgba(0, 0, 0, 0.12);   /* Cards, light elevation */
+  --vita-shadow-md: 0px 4px 12px 4px rgba(0, 0, 0, 0.12);  /* Dialogs, bottom sheets */
+  --vita-shadow-lg: 0px 8px 16px 6px rgba(0, 0, 0, 0.26);  /* High elevation elements */
+  
+  /* ===== COMPONENT TOKENS ===== */
+  
+  /* Button */
+  --vita-button-padding-vertical: 16px;
+  --vita-button-padding-horizontal: 32px;
+  --vita-button-border-radius: var(--vita-border-radius-sm);
+  --vita-button-action-width: 150px;
+  
+  /* Input */
+  --vita-input-padding-vertical: 12px;
+  --vita-input-padding-horizontal: 12px;
+  --vita-input-border-radius: var(--vita-border-radius-xs);
+  --vita-input-border-width-default: 1.5px;
+  --vita-input-border-width-focused: 2px;
+  --vita-input-border-width-error: 1px;
+  --vita-input-margin-bottom: var(--vita-spacing-4);
+  --vita-input-label-spacing: var(--vita-spacing-2);
+  
+  /* Card */
+  --vita-card-padding-vertical: var(--vita-spacing-2);
+  --vita-card-padding-horizontal: var(--vita-spacing-4);
+  --vita-card-margin-vertical: var(--vita-spacing-2);
+  --vita-card-margin-horizontal: var(--vita-spacing-3);
+  --vita-card-border-radius: var(--vita-border-radius-md);
+  
+  /* Container */
+  --vita-container-padding-standard: var(--vita-spacing-4);
+  --vita-container-margin-horizontal-content: var(--vita-spacing-6);
+  --vita-container-margin-horizontal-responsive: 10%;
+  
+  /* AppBar */
+  --vita-appbar-elevation-default: 0;
+  --vita-appbar-elevation-scrolled: 1;
+  
+  /* Bottom Navigation */
+  --vita-bottom-nav-icon-size: 24px;
+  --vita-bottom-nav-elevation: 0;
+  
+  /* Progress Indicator */
+  --vita-progress-linear-height: 5px;
+  --vita-progress-circular-size-small: 20px;
+  --vita-progress-circular-size-medium: 24px;
+  --vita-progress-circular-stroke-width: 2px;
+  
+  /* Photo */
+  --vita-photo-aspect-ratio: 0.3;
+  --vita-photo-border-radius: var(--vita-border-radius-md);
+  --vita-photo-icon-placeholder-size: 48px;
+  
+  /* Status Badge */
+  --vita-status-badge-padding-vertical: var(--vita-spacing-1);
+  --vita-status-badge-padding-horizontal: var(--vita-spacing-2);
+  --vita-status-badge-border-radius: var(--vita-border-radius-sm);
+  --vita-status-badge-font-size: var(--vita-font-size-sm);
+  
+  /* Offline Indicator */
+  --vita-offline-indicator-width: 100px;
+  --vita-offline-indicator-height: 75px;
+  --vita-offline-indicator-icon-size: 24px;
+  
+  /* Bottom Sheet */
+  --vita-bottom-sheet-border-radius: var(--vita-border-radius-lg);
+  --vita-bottom-sheet-drag-handle-width: 40px;
+  --vita-bottom-sheet-drag-handle-height: 6px;
+  --vita-bottom-sheet-drag-handle-border-radius: 3px;
+  --vita-bottom-sheet-drag-handle-margin-vertical: var(--vita-spacing-3);
+}
+
+/* 
+================================================================================
+DARK THEME VARIABLES
+================================================================================
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* ===== BRAND COLORS - DARK ===== */
+    --vita-color-brand-primary: #a8cdff;
+    --vita-color-brand-primary-container: #6494cd;
+    --vita-color-brand-secondary: #bbcce7;
+    --vita-color-brand-tertiary: #efb7fc;
+    
+    /* ===== SURFACE COLORS - DARK ===== */
+    --vita-color-surface-background: #111317;
+    --vita-color-surface-main: #111317;
+    --vita-color-surface-variant: #42474f;
+    --vita-color-surface-container-lowest: #0c0e12;
+    --vita-color-surface-container-low: #191c1f;
+    --vita-color-surface-container: #1d2023;
+    --vita-color-surface-container-high: #282a2e;
+    --vita-color-surface-container-highest: #333539;
+    
+    /* ===== TEXT COLORS - DARK ===== */
+    --vita-color-text-on-surface: #fafaff;
+    --vita-color-text-on-surface-variant: #c6cbd5;
+    --vita-color-text-on-primary: #00172e;
+    
+    /* ===== OUTLINE COLORS - DARK ===== */
+    --vita-color-outline-main: #9ea3ad;
+    --vita-color-outline-variant: #7e838d;
+    
+    /* ===== SEMANTIC COLORS - DARK ===== */
+    --vita-color-semantic-error: #ffbab1;
+    --vita-color-semantic-error-container: #ff5449;
+    /* Success, warning, info remain the same */
+  }
+}
+
+/* Alternative dark theme class for manual switching */
+[data-theme="dark"] {
+  /* ===== BRAND COLORS - DARK ===== */
+  --vita-color-brand-primary: #a8cdff;
+  --vita-color-brand-primary-container: #6494cd;
+  --vita-color-brand-secondary: #bbcce7;
+  --vita-color-brand-tertiary: #efb7fc;
+  
+  /* ===== SURFACE COLORS - DARK ===== */
+  --vita-color-surface-background: #111317;
+  --vita-color-surface-main: #111317;
+  --vita-color-surface-variant: #42474f;
+  --vita-color-surface-container-lowest: #0c0e12;
+  --vita-color-surface-container-low: #191c1f;
+  --vita-color-surface-container: #1d2023;
+  --vita-color-surface-container-high: #282a2e;
+  --vita-color-surface-container-highest: #333539;
+  
+  /* ===== TEXT COLORS - DARK ===== */
+  --vita-color-text-on-surface: #fafaff;
+  --vita-color-text-on-surface-variant: #c6cbd5;
+  --vita-color-text-on-primary: #00172e;
+  
+  /* ===== OUTLINE COLORS - DARK ===== */
+  --vita-color-outline-main: #9ea3ad;
+  --vita-color-outline-variant: #7e838d;
+  
+  /* ===== SEMANTIC COLORS - DARK ===== */
+  --vita-color-semantic-error: #ffbab1;
+  --vita-color-semantic-error-container: #ff5449;
+}
+
+/* Light theme explicit override */
+[data-theme="light"] {
+  /* ===== BRAND COLORS - LIGHT ===== */
+  --vita-color-brand-primary: #003965;
+  --vita-color-brand-primary-container: #275c92;
+  --vita-color-brand-secondary: #33445a;
+  --vita-color-brand-tertiary: #50245e;
+  
+  /* ===== SURFACE COLORS - LIGHT ===== */
+  --vita-color-surface-background: #f9f9fe;
+  --vita-color-surface-main: #f9f9fe;
+  --vita-color-surface-variant: #dee2ed;
+  --vita-color-surface-container-lowest: #ffffff;
+  --vita-color-surface-container-low: #f3f3f8;
+  --vita-color-surface-container: #ededf3;
+  --vita-color-surface-container-high: #e8e8ea;
+  --vita-color-surface-container-highest: #e2e2e7;
+  
+  /* ===== TEXT COLORS - LIGHT ===== */
+  --vita-color-text-on-surface: #191c1f;
+  --vita-color-text-on-surface-variant: #3e434b;
+  --vita-color-text-on-primary: #ffffff;
+  
+  /* ===== OUTLINE COLORS - LIGHT ===== */
+  --vita-color-outline-main: #5a5f68;
+  --vita-color-outline-variant: #767b84;
+  
+  /* ===== SEMANTIC COLORS - LIGHT ===== */
+  --vita-color-semantic-error: #8c0009;
+  --vita-color-semantic-error-container: #da342e;
+}
+
+/* 
+================================================================================
+TEXT STYLE CLASSES
+================================================================================
+*/
+
+/* Display Styles */
+.vita-text-display-large {
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-6xl);
+  font-weight: var(--vita-font-weight-black);
+  line-height: var(--vita-line-height-tight);
+  letter-spacing: var(--vita-letter-spacing-tight);
+}
+
+.vita-text-display-medium {
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-5xl);
+  font-weight: var(--vita-font-weight-extrabold);
+  line-height: var(--vita-line-height-tight);
+  letter-spacing: var(--vita-letter-spacing-normal);
+}
+
+.vita-text-display-small {
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-4xl);
+  font-weight: var(--vita-font-weight-bold);
+  line-height: var(--vita-line-height-tight);
+  letter-spacing: var(--vita-letter-spacing-normal);
+}
+
+/* Headline Styles */
+.vita-text-headline-large {
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-3xl);
+  font-weight: var(--vita-font-weight-semibold);
+  line-height: var(--vita-line-height-snug);
+  letter-spacing: var(--vita-letter-spacing-normal);
+}
+
+.vita-text-headline-medium {
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-2xl);
+  font-weight: var(--vita-font-weight-semibold);
+  line-height: var(--vita-line-height-snug);
+  letter-spacing: var(--vita-letter-spacing-normal);
+}
+
+.vita-text-headline-small {
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-xl);
+  font-weight: var(--vita-font-weight-semibold);
+  line-height: var(--vita-line-height-snug);
+  letter-spacing: var(--vita-letter-spacing-normal);
+}
+
+/* Body Styles */
+.vita-text-body-large {
+  font-family: var(--vita-font-family-body);
+  font-size: var(--vita-font-size-lg);
+  font-weight: var(--vita-font-weight-normal);
+  line-height: var(--vita-line-height-normal);
+  letter-spacing: var(--vita-letter-spacing-wide);
+}
+
+.vita-text-body-medium {
+  font-family: var(--vita-font-family-body);
+  font-size: var(--vita-font-size-base);
+  font-weight: var(--vita-font-weight-normal);
+  line-height: var(--vita-line-height-normal);
+  letter-spacing: var(--vita-letter-spacing-wide);
+}
+
+.vita-text-body-small {
+  font-family: var(--vita-font-family-body);
+  font-size: var(--vita-font-size-sm);
+  font-weight: var(--vita-font-weight-normal);
+  line-height: var(--vita-line-height-normal);
+  letter-spacing: var(--vita-letter-spacing-wider);
+}
+
+/* Label Styles */
+.vita-text-label-large {
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-base);
+  font-weight: var(--vita-font-weight-medium);
+  line-height: var(--vita-line-height-normal);
+  letter-spacing: var(--vita-letter-spacing-wide);
+}
+
+.vita-text-label-medium {
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-sm);
+  font-weight: var(--vita-font-weight-medium);
+  line-height: var(--vita-line-height-normal);
+  letter-spacing: var(--vita-letter-spacing-wider);
+}
+
+.vita-text-label-small {
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-xs);
+  font-weight: var(--vita-font-weight-medium);
+  line-height: var(--vita-line-height-normal);
+  letter-spacing: var(--vita-letter-spacing-wider);
+}
+
+/* 
+================================================================================
+COMPONENT CLASSES
+================================================================================
+*/
+
+/* Base Button */
+.vita-button {
+  padding: var(--vita-button-padding-vertical) var(--vita-button-padding-horizontal);
+  border-radius: var(--vita-button-border-radius);
+  border: none;
+  cursor: pointer;
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-base);
+  font-weight: var(--vita-font-weight-medium);
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Primary Button */
+.vita-button-primary {
+  background-color: var(--vita-color-brand-primary);
+  color: var(--vita-color-text-on-primary);
+}
+
+.vita-button-primary:hover {
+  opacity: 0.9;
+}
+
+/* Secondary Button */
+.vita-button-secondary {
+  background-color: transparent;
+  color: var(--vita-color-text-on-surface);
+  border: 1.5px solid var(--vita-color-outline-variant);
+}
+
+.vita-button-secondary:hover {
+  background-color: var(--vita-color-surface-container);
+}
+
+/* Action Buttons */
+.vita-button-action {
+  width: var(--vita-button-action-width);
+}
+
+.vita-button-edit {
+  background-color: var(--vita-color-functional-edit-action);
+  color: white;
+}
+
+.vita-button-delete {
+  background-color: var(--vita-color-semantic-error);
+  color: white;
+}
+
+/* Input Field */
+.vita-input {
+  padding: var(--vita-input-padding-vertical) var(--vita-input-padding-horizontal);
+  border-radius: var(--vita-input-border-radius);
+  border: var(--vita-input-border-width-default) solid var(--vita-color-outline-variant);
+  background-color: var(--vita-color-surface-main);
+  color: var(--vita-color-text-on-surface);
+  font-family: var(--vita-font-family-body);
+  font-size: var(--vita-font-size-base);
+  margin-bottom: var(--vita-input-margin-bottom);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.vita-input:focus {
+  outline: none;
+  border-width: var(--vita-input-border-width-focused);
+  border-color: var(--vita-color-brand-primary);
+}
+
+.vita-input.error {
+  border-width: var(--vita-input-border-width-error);
+  border-color: var(--vita-color-semantic-error);
+}
+
+.vita-input-label {
+  display: block;
+  margin-bottom: var(--vita-input-label-spacing);
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-font-size-sm);
+  font-weight: var(--vita-font-weight-medium);
+  color: var(--vita-color-text-on-surface);
+}
+
+/* Card */
+.vita-card {
+  background-color: var(--vita-color-surface-main);
+  border-radius: var(--vita-card-border-radius);
+  padding: var(--vita-card-padding-vertical) var(--vita-card-padding-horizontal);
+  margin: var(--vita-card-margin-vertical) var(--vita-card-margin-horizontal);
+  box-shadow: var(--vita-shadow-sm);
+}
+
+/* Container */
+.vita-container {
+  padding: var(--vita-container-padding-standard);
+}
+
+.vita-container-content {
+  margin: 0 var(--vita-container-margin-horizontal-content);
+}
+
+.vita-container-responsive {
+  margin: 0 var(--vita-container-margin-horizontal-responsive);
+}
+
+/* Status Badge */
+.vita-status-badge {
+  display: inline-block;
+  padding: var(--vita-status-badge-padding-vertical) var(--vita-status-badge-padding-horizontal);
+  border-radius: var(--vita-status-badge-border-radius);
+  font-family: var(--vita-font-family-display);
+  font-size: var(--vita-status-badge-font-size);
+  font-weight: var(--vita-font-weight-medium);
+  color: white;
+}
+
+.vita-status-badge-success {
+  background-color: var(--vita-color-semantic-success);
+}
+
+.vita-status-badge-error {
+  background-color: var(--vita-color-semantic-error);
+}
+
+.vita-status-badge-warning {
+  background-color: var(--vita-color-semantic-warning);
+}
+
+/* Progress Indicators */
+.vita-progress-linear {
+  width: 100%;
+  height: var(--vita-progress-linear-height);
+  background-color: var(--vita-color-surface-variant);
+  border-radius: calc(var(--vita-progress-linear-height) / 2);
+  overflow: hidden;
+}
+
+.vita-progress-linear-fill {
+  height: 100%;
+  background-color: var(--vita-color-brand-primary);
+  transition: width 0.3s ease-in-out;
+}
+
+/* Offline Indicator */
+.vita-offline-indicator {
+  position: fixed;
+  top: 60px; /* Adjust based on your header height */
+  right: 0;
+  width: var(--vita-offline-indicator-width);
+  height: var(--vita-offline-indicator-height);
+  background-color: var(--vita-color-functional-offline-indicator);
+  color: white;
+  border-radius: var(--vita-border-radius-sm) 0 0 var(--vita-border-radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--vita-font-size-sm);
+  font-weight: var(--vita-font-weight-medium);
+  z-index: 1000;
+}
+
+.vita-offline-indicator.online {
+  background-color: var(--vita-color-functional-online-indicator);
+}
+
+.vita-offline-indicator-icon {
+  font-size: var(--vita-offline-indicator-icon-size);
+  margin-bottom: var(--vita-spacing-1);
+}
+
+/* Photo Container */
+.vita-photo-container {
+  background-color: var(--vita-color-surface-main);
+  border-radius: var(--vita-photo-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.vita-photo-container.error {
+  border: 2px solid var(--vita-color-semantic-error);
+}
+
+.vita-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--vita-color-brand-secondary);
+}
+
+.vita-photo-placeholder-icon {
+  font-size: var(--vita-photo-icon-placeholder-size);
+  margin-bottom: var(--vita-spacing-2);
+}
+
+/* Bottom Sheet */
+.vita-bottom-sheet {
+  background-color: var(--vita-color-surface-main);
+  border-radius: var(--vita-bottom-sheet-border-radius) var(--vita-bottom-sheet-border-radius) 0 0;
+  box-shadow: var(--vita-shadow-md);
+  padding: var(--vita-spacing-6);
+}
+
+.vita-bottom-sheet-drag-handle {
+  width: var(--vita-bottom-sheet-drag-handle-width);
+  height: var(--vita-bottom-sheet-drag-handle-height);
+  background-color: var(--vita-color-outline-main);
+  border-radius: var(--vita-bottom-sheet-drag-handle-border-radius);
+  margin: var(--vita-bottom-sheet-drag-handle-margin-vertical) auto;
+}
+
+/* 
+================================================================================
+UTILITY CLASSES
+================================================================================
+*/
+
+/* Spacing Utilities */
+.vita-m-1 { margin: var(--vita-spacing-1); }
+.vita-m-2 { margin: var(--vita-spacing-2); }
+.vita-m-3 { margin: var(--vita-spacing-3); }
+.vita-m-4 { margin: var(--vita-spacing-4); }
+.vita-m-5 { margin: var(--vita-spacing-5); }
+.vita-m-6 { margin: var(--vita-spacing-6); }
+.vita-m-8 { margin: var(--vita-spacing-8); }
+
+.vita-p-1 { padding: var(--vita-spacing-1); }
+.vita-p-2 { padding: var(--vita-spacing-2); }
+.vita-p-3 { padding: var(--vita-spacing-3); }
+.vita-p-4 { padding: var(--vita-spacing-4); }
+.vita-p-5 { padding: var(--vita-spacing-5); }
+.vita-p-6 { padding: var(--vita-spacing-6); }
+.vita-p-8 { padding: var(--vita-spacing-8); }
+
+/* Margin Horizontal */
+.vita-mx-1 { margin-left: var(--vita-spacing-1); margin-right: var(--vita-spacing-1); }
+.vita-mx-2 { margin-left: var(--vita-spacing-2); margin-right: var(--vita-spacing-2); }
+.vita-mx-3 { margin-left: var(--vita-spacing-3); margin-right: var(--vita-spacing-3); }
+.vita-mx-4 { margin-left: var(--vita-spacing-4); margin-right: var(--vita-spacing-4); }
+.vita-mx-6 { margin-left: var(--vita-spacing-6); margin-right: var(--vita-spacing-6); }
+
+/* Margin Vertical */
+.vita-my-1 { margin-top: var(--vita-spacing-1); margin-bottom: var(--vita-spacing-1); }
+.vita-my-2 { margin-top: var(--vita-spacing-2); margin-bottom: var(--vita-spacing-2); }
+.vita-my-3 { margin-top: var(--vita-spacing-3); margin-bottom: var(--vita-spacing-3); }
+.vita-my-4 { margin-top: var(--vita-spacing-4); margin-bottom: var(--vita-spacing-4); }
+.vita-my-6 { margin-top: var(--vita-spacing-6); margin-bottom: var(--vita-spacing-6); }
+
+/* Padding Horizontal */
+.vita-px-1 { padding-left: var(--vita-spacing-1); padding-right: var(--vita-spacing-1); }
+.vita-px-2 { padding-left: var(--vita-spacing-2); padding-right: var(--vita-spacing-2); }
+.vita-px-3 { padding-left: var(--vita-spacing-3); padding-right: var(--vita-spacing-3); }
+.vita-px-4 { padding-left: var(--vita-spacing-4); padding-right: var(--vita-spacing-4); }
+.vita-px-6 { padding-left: var(--vita-spacing-6); padding-right: var(--vita-spacing-6); }
+
+/* Padding Vertical */
+.vita-py-1 { padding-top: var(--vita-spacing-1); padding-bottom: var(--vita-spacing-1); }
+.vita-py-2 { padding-top: var(--vita-spacing-2); padding-bottom: var(--vita-spacing-2); }
+.vita-py-3 { padding-top: var(--vita-spacing-3); padding-bottom: var(--vita-spacing-3); }
+.vita-py-4 { padding-top: var(--vita-spacing-4); padding-bottom: var(--vita-spacing-4); }
+.vita-py-6 { padding-top: var(--vita-spacing-6); padding-bottom: var(--vita-spacing-6); }
+
+/* Border Radius Utilities */
+.vita-rounded-xs { border-radius: var(--vita-border-radius-xs); }
+.vita-rounded-sm { border-radius: var(--vita-border-radius-sm); }
+.vita-rounded-md { border-radius: var(--vita-border-radius-md); }
+.vita-rounded-lg { border-radius: var(--vita-border-radius-lg); }
+.vita-rounded-xl { border-radius: var(--vita-border-radius-xl); }
+.vita-rounded-full { border-radius: var(--vita-border-radius-full); }
+
+/* Shadow Utilities */
+.vita-shadow-sm { box-shadow: var(--vita-shadow-sm); }
+.vita-shadow-md { box-shadow: var(--vita-shadow-md); }
+.vita-shadow-lg { box-shadow: var(--vita-shadow-lg); }
+
+/* Color Utilities */
+.vita-text-primary { color: var(--vita-color-brand-primary); }
+.vita-text-secondary { color: var(--vita-color-brand-secondary); }
+.vita-text-on-surface { color: var(--vita-color-text-on-surface); }
+.vita-text-on-surface-variant { color: var(--vita-color-text-on-surface-variant); }
+.vita-text-error { color: var(--vita-color-semantic-error); }
+.vita-text-success { color: var(--vita-color-semantic-success); }
+.vita-text-warning { color: var(--vita-color-semantic-warning); }
+
+.vita-bg-surface { background-color: var(--vita-color-surface-main); }
+.vita-bg-primary { background-color: var(--vita-color-brand-primary); }
+.vita-bg-secondary { background-color: var(--vita-color-brand-secondary); }
+.vita-bg-error { background-color: var(--vita-color-semantic-error); }
+.vita-bg-success { background-color: var(--vita-color-semantic-success); }
+.vita-bg-warning { background-color: var(--vita-color-semantic-warning); }
+
+/* 
+================================================================================
+RESPONSIVE UTILITIES
+================================================================================
+*/
+
+/* Mobile First Approach */
+@media (min-width: 768px) {
+  .vita-container-responsive {
+    margin: 0 8%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vita-container-responsive {
+    margin: 0 5%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .vita-container-responsive {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+}
+
+/* 
+================================================================================
+USAGE EXAMPLES
+================================================================================
+
+<!-- Basic Button -->
+<button class="vita-button vita-button-primary">
+  Primary Action
+</button>
+
+<!-- Input with Label -->
+<div>
+  <label class="vita-input-label">Field Label</label>
+  <input type="text" class="vita-input" placeholder="Enter value">
+</div>
+
+<!-- Card Component -->
+<div class="vita-card">
+  <h3 class="vita-text-headline-small">Card Title</h3>
+  <p class="vita-text-body-medium">Card content goes here.</p>
+</div>
+
+<!-- Status Badge -->
+<span class="vita-status-badge vita-status-badge-success">
+  Completed
+</span>
+
+<!-- Container with Content -->
+<div class="vita-container-content">
+  <h1 class="vita-text-headline-medium">Page Title</h1>
+  <p class="vita-text-body-large">Main content.</p>
+</div>
+
+<!-- Utility Classes -->
+<div class="vita-p-4 vita-mx-6 vita-rounded-md vita-shadow-sm vita-bg-surface">
+  Content with utilities
+</div>
+
+================================================================================
+*/

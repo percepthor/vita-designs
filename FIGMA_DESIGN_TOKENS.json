@@ -1,0 +1,829 @@
+{
+  "version": "1.0.0",
+  "designSystem": "ViTA Flutter App",
+  "description": "Design tokens for ViTA mobile application - Compatible with Figma design tools",
+  "tokens": {
+    "color": {
+      "brand": {
+        "primary": {
+          "light": {
+            "value": "#003965",
+            "type": "color",
+            "description": "Primary brand color for light theme"
+          },
+          "dark": {
+            "value": "#a8cdff",
+            "type": "color",
+            "description": "Primary brand color for dark theme"
+          }
+        },
+        "primaryContainer": {
+          "light": {
+            "value": "#275c92",
+            "type": "color",
+            "description": "Primary container color for light theme"
+          },
+          "dark": {
+            "value": "#6494cd",
+            "type": "color",
+            "description": "Primary container color for dark theme"
+          }
+        },
+        "secondary": {
+          "light": {
+            "value": "#33445a",
+            "type": "color",
+            "description": "Secondary brand color for light theme"
+          },
+          "dark": {
+            "value": "#bbcce7",
+            "type": "color",
+            "description": "Secondary brand color for dark theme"
+          }
+        },
+        "tertiary": {
+          "light": {
+            "value": "#50245e",
+            "type": "color",
+            "description": "Tertiary brand color for light theme"
+          },
+          "dark": {
+            "value": "#efb7fc",
+            "type": "color",
+            "description": "Tertiary brand color for dark theme"
+          }
+        }
+      },
+      "surface": {
+        "background": {
+          "light": {
+            "value": "#f9f9fe",
+            "type": "color",
+            "description": "Main background color for light theme"
+          },
+          "dark": {
+            "value": "#111317",
+            "type": "color",
+            "description": "Main background color for dark theme"
+          }
+        },
+        "surface": {
+          "light": {
+            "value": "#f9f9fe",
+            "type": "color",
+            "description": "Main surface color for light theme"
+          },
+          "dark": {
+            "value": "#111317",
+            "type": "color",
+            "description": "Main surface color for dark theme"
+          }
+        },
+        "surfaceVariant": {
+          "light": {
+            "value": "#dee2ed",
+            "type": "color",
+            "description": "Surface variant color for light theme"
+          },
+          "dark": {
+            "value": "#42474f",
+            "type": "color",
+            "description": "Surface variant color for dark theme"
+          }
+        },
+        "surfaceContainerLowest": {
+          "light": {
+            "value": "#ffffff",
+            "type": "color",
+            "description": "Lowest elevation surface for light theme"
+          },
+          "dark": {
+            "value": "#0c0e12",
+            "type": "color",
+            "description": "Lowest elevation surface for dark theme"
+          }
+        },
+        "surfaceContainerLow": {
+          "light": {
+            "value": "#f3f3f8",
+            "type": "color",
+            "description": "Low elevation surface for light theme"
+          },
+          "dark": {
+            "value": "#191c1f",
+            "type": "color",
+            "description": "Low elevation surface for dark theme"
+          }
+        },
+        "surfaceContainer": {
+          "light": {
+            "value": "#ededf3",
+            "type": "color",
+            "description": "Standard elevation surface for light theme"
+          },
+          "dark": {
+            "value": "#1d2023",
+            "type": "color",
+            "description": "Standard elevation surface for dark theme"
+          }
+        },
+        "surfaceContainerHigh": {
+          "light": {
+            "value": "#e8e8ea",
+            "type": "color",
+            "description": "High elevation surface (AppBars, navigation) for light theme"
+          },
+          "dark": {
+            "value": "#282a2e",
+            "type": "color",
+            "description": "High elevation surface (AppBars, navigation) for dark theme"
+          }
+        },
+        "surfaceContainerHighest": {
+          "light": {
+            "value": "#e2e2e7",
+            "type": "color",
+            "description": "Highest elevation surface for light theme"
+          },
+          "dark": {
+            "value": "#333539",
+            "type": "color",
+            "description": "Highest elevation surface for dark theme"
+          }
+        }
+      },
+      "text": {
+        "onSurface": {
+          "light": {
+            "value": "#191c1f",
+            "type": "color",
+            "description": "Primary text color on surfaces for light theme"
+          },
+          "dark": {
+            "value": "#fafaff",
+            "type": "color",
+            "description": "Primary text color on surfaces for dark theme"
+          }
+        },
+        "onSurfaceVariant": {
+          "light": {
+            "value": "#3e434b",
+            "type": "color",
+            "description": "Secondary text color for light theme"
+          },
+          "dark": {
+            "value": "#c6cbd5",
+            "type": "color",
+            "description": "Secondary text color for dark theme"
+          }
+        },
+        "onPrimary": {
+          "light": {
+            "value": "#ffffff",
+            "type": "color",
+            "description": "Text color on primary surfaces for light theme"
+          },
+          "dark": {
+            "value": "#00172e",
+            "type": "color",
+            "description": "Text color on primary surfaces for dark theme"
+          }
+        }
+      },
+      "outline": {
+        "outline": {
+          "light": {
+            "value": "#5a5f68",
+            "type": "color",
+            "description": "Primary outline color for light theme"
+          },
+          "dark": {
+            "value": "#9ea3ad",
+            "type": "color",
+            "description": "Primary outline color for dark theme"
+          }
+        },
+        "outlineVariant": {
+          "light": {
+            "value": "#767b84",
+            "type": "color",
+            "description": "Secondary outline color for light theme"
+          },
+          "dark": {
+            "value": "#7e838d",
+            "type": "color",
+            "description": "Secondary outline color for dark theme"
+          }
+        }
+      },
+      "semantic": {
+        "error": {
+          "light": {
+            "value": "#8c0009",
+            "type": "color",
+            "description": "Error color for light theme"
+          },
+          "dark": {
+            "value": "#ffbab1",
+            "type": "color",
+            "description": "Error color for dark theme"
+          }
+        },
+        "errorContainer": {
+          "light": {
+            "value": "#da342e",
+            "type": "color",
+            "description": "Error container color for light theme"
+          },
+          "dark": {
+            "value": "#ff5449",
+            "type": "color",
+            "description": "Error container color for dark theme"
+          }
+        },
+        "success": {
+          "value": "#4caf50",
+          "type": "color",
+          "description": "Success color - consistent across themes"
+        },
+        "warning": {
+          "value": "#ff9800",
+          "type": "color",
+          "description": "Warning color - consistent across themes"
+        },
+        "info": {
+          "value": "#2196f3",
+          "type": "color",
+          "description": "Information color - consistent across themes"
+        }
+      },
+      "functional": {
+        "offlineIndicator": {
+          "value": "#ff5722",
+          "type": "color",
+          "description": "Offline state indicator color"
+        },
+        "onlineIndicator": {
+          "value": "#4caf50",
+          "type": "color",
+          "description": "Online state indicator color"
+        },
+        "syncProgress": {
+          "value": "#2196f3",
+          "type": "color",
+          "description": "Synchronization progress color"
+        },
+        "editAction": {
+          "value": "#e7b82d",
+          "type": "color",
+          "description": "Edit action button color (amber/yellow)"
+        }
+      },
+      "shadow": {
+        "light": {
+          "value": "rgba(0, 0, 0, 0.12)",
+          "type": "color",
+          "description": "Standard shadow color for light theme"
+        },
+        "dark": {
+          "value": "rgba(0, 0, 0, 0.12)",
+          "type": "color",
+          "description": "Standard shadow color for dark theme"
+        }
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "body": {
+          "value": "Heebo",
+          "type": "fontFamily",
+          "description": "Primary font family for body text"
+        },
+        "display": {
+          "value": "Poppins",
+          "type": "fontFamily",
+          "description": "Primary font family for headings and display text"
+        }
+      },
+      "fontSize": {
+        "xs": {
+          "value": "11px",
+          "type": "fontSize",
+          "description": "Extra small font size - Label Small"
+        },
+        "sm": {
+          "value": "12px",
+          "type": "fontSize",
+          "description": "Small font size - Body Small, Label Medium"
+        },
+        "base": {
+          "value": "14px",
+          "type": "fontSize",
+          "description": "Base font size - Body Medium, Label Large"
+        },
+        "lg": {
+          "value": "16px",
+          "type": "fontSize",
+          "description": "Large font size - Body Large"
+        },
+        "xl": {
+          "value": "24px",
+          "type": "fontSize",
+          "description": "Extra large font size - Headline Small"
+        },
+        "2xl": {
+          "value": "28px",
+          "type": "fontSize",
+          "description": "2X large font size - Headline Medium"
+        },
+        "3xl": {
+          "value": "32px",
+          "type": "fontSize",
+          "description": "3X large font size - Headline Large"
+        },
+        "4xl": {
+          "value": "36px",
+          "type": "fontSize",
+          "description": "4X large font size - Display Small"
+        },
+        "5xl": {
+          "value": "45px",
+          "type": "fontSize",
+          "description": "5X large font size - Display Medium"
+        },
+        "6xl": {
+          "value": "57px",
+          "type": "fontSize",
+          "description": "6X large font size - Display Large"
+        }
+      },
+      "fontWeight": {
+        "normal": {
+          "value": "400",
+          "type": "fontWeight",
+          "description": "Normal font weight - Body text"
+        },
+        "medium": {
+          "value": "500",
+          "type": "fontWeight",
+          "description": "Medium font weight - Labels"
+        },
+        "semibold": {
+          "value": "600",
+          "type": "fontWeight",
+          "description": "Semibold font weight - Headlines"
+        },
+        "bold": {
+          "value": "700",
+          "type": "fontWeight",
+          "description": "Bold font weight - Display Small"
+        },
+        "extrabold": {
+          "value": "800",
+          "type": "fontWeight",
+          "description": "Extra bold font weight - Display Medium"
+        },
+        "black": {
+          "value": "900",
+          "type": "fontWeight",
+          "description": "Black font weight - Display Large"
+        }
+      },
+      "lineHeight": {
+        "tight": {
+          "value": "1.2",
+          "type": "lineHeight",
+          "description": "Tight line height - Display text"
+        },
+        "snug": {
+          "value": "1.3",
+          "type": "lineHeight",
+          "description": "Snug line height - Headlines"
+        },
+        "normal": {
+          "value": "1.4",
+          "type": "lineHeight",
+          "description": "Normal line height - Body text"
+        },
+        "relaxed": {
+          "value": "1.5",
+          "type": "lineHeight",
+          "description": "Relaxed line height - Reading text"
+        }
+      },
+      "letterSpacing": {
+        "tight": {
+          "value": "-0.25px",
+          "type": "letterSpacing",
+          "description": "Tight letter spacing - Large display text"
+        },
+        "normal": {
+          "value": "0px",
+          "type": "letterSpacing",
+          "description": "Normal letter spacing - Headlines"
+        },
+        "wide": {
+          "value": "0.25px",
+          "type": "letterSpacing",
+          "description": "Wide letter spacing - Body text"
+        },
+        "wider": {
+          "value": "0.5px",
+          "type": "letterSpacing",
+          "description": "Wider letter spacing - Labels and small text"
+        }
+      }
+    },
+    "spacing": {
+      "1": {
+        "value": "4px",
+        "type": "spacing",
+        "description": "Micro spacing - 4px"
+      },
+      "2": {
+        "value": "8px",
+        "type": "spacing",
+        "description": "Small spacing - 8px"
+      },
+      "3": {
+        "value": "12px",
+        "type": "spacing",
+        "description": "Compact spacing - 12px"
+      },
+      "4": {
+        "value": "16px",
+        "type": "spacing",
+        "description": "Standard spacing - 16px (most common)"
+      },
+      "5": {
+        "value": "20px",
+        "type": "spacing",
+        "description": "Medium spacing - 20px"
+      },
+      "6": {
+        "value": "24px",
+        "type": "spacing",
+        "description": "Wide spacing - 24px (sections)"
+      },
+      "8": {
+        "value": "32px",
+        "type": "spacing",
+        "description": "Extra wide spacing - 32px (buttons, major sections)"
+      },
+      "10": {
+        "value": "40px",
+        "type": "spacing",
+        "description": "Section spacing - 40px"
+      },
+      "12": {
+        "value": "48px",
+        "type": "spacing",
+        "description": "Large section spacing - 48px"
+      }
+    },
+    "borderRadius": {
+      "xs": {
+        "value": "4px",
+        "type": "borderRadius",
+        "description": "Extra small radius - Input fields"
+      },
+      "sm": {
+        "value": "8px",
+        "type": "borderRadius",
+        "description": "Small radius - Buttons, status indicators"
+      },
+      "md": {
+        "value": "12px",
+        "type": "borderRadius",
+        "description": "Medium radius - Cards, containers (most common)"
+      },
+      "lg": {
+        "value": "24px",
+        "type": "borderRadius",
+        "description": "Large radius - Bottom sheets, large containers"
+      },
+      "xl": {
+        "value": "32px",
+        "type": "borderRadius",
+        "description": "Extra large radius - Decorative elements"
+      },
+      "full": {
+        "value": "100px",
+        "type": "borderRadius",
+        "description": "Full radius - Circular elements"
+      }
+    },
+    "shadow": {
+      "sm": {
+        "value": {
+          "color": "rgba(0, 0, 0, 0.12)",
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "8px",
+          "spread": "2px"
+        },
+        "type": "boxShadow",
+        "description": "Small shadow - Cards, light elevation"
+      },
+      "md": {
+        "value": {
+          "color": "rgba(0, 0, 0, 0.12)",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "12px",
+          "spread": "4px"
+        },
+        "type": "boxShadow",
+        "description": "Medium shadow - Dialogs, bottom sheets"
+      },
+      "lg": {
+        "value": {
+          "color": "rgba(0, 0, 0, 0.26)",
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "16px",
+          "spread": "6px"
+        },
+        "type": "boxShadow",
+        "description": "Large shadow - High elevation elements"
+      }
+    },
+    "component": {
+      "button": {
+        "paddingVertical": {
+          "value": "16px",
+          "type": "spacing",
+          "description": "Standard vertical padding for buttons"
+        },
+        "paddingHorizontal": {
+          "value": "32px",
+          "type": "spacing",
+          "description": "Standard horizontal padding for buttons"
+        },
+        "borderRadius": {
+          "value": "8px",
+          "type": "borderRadius",
+          "description": "Standard border radius for buttons"
+        },
+        "width": {
+          "action": {
+            "value": "150px",
+            "type": "sizing",
+            "description": "Standard width for action buttons (edit, delete)"
+          }
+        }
+      },
+      "input": {
+        "paddingVertical": {
+          "value": "12px",
+          "type": "spacing",
+          "description": "Standard vertical padding for input fields"
+        },
+        "paddingHorizontal": {
+          "value": "12px",
+          "type": "spacing",
+          "description": "Standard horizontal padding for input fields"
+        },
+        "borderRadius": {
+          "value": "4px",
+          "type": "borderRadius",
+          "description": "Standard border radius for input fields"
+        },
+        "borderWidth": {
+          "default": {
+            "value": "1.5px",
+            "type": "borderWidth",
+            "description": "Default border width for input fields"
+          },
+          "focused": {
+            "value": "2px",
+            "type": "borderWidth",
+            "description": "Border width for focused input fields"
+          },
+          "error": {
+            "value": "1px",
+            "type": "borderWidth",
+            "description": "Border width for error state input fields"
+          }
+        },
+        "marginBottom": {
+          "value": "16px",
+          "type": "spacing",
+          "description": "Standard bottom margin for form fields"
+        },
+        "labelSpacing": {
+          "value": "8px",
+          "type": "spacing",
+          "description": "Spacing between label and input field"
+        }
+      },
+      "card": {
+        "paddingVertical": {
+          "value": "8px",
+          "type": "spacing",
+          "description": "Standard vertical padding for cards"
+        },
+        "paddingHorizontal": {
+          "value": "16px",
+          "type": "spacing",
+          "description": "Standard horizontal padding for cards"
+        },
+        "marginVertical": {
+          "value": "8px",
+          "type": "spacing",
+          "description": "Standard vertical margin for cards"
+        },
+        "marginHorizontal": {
+          "value": "12px",
+          "type": "spacing",
+          "description": "Standard horizontal margin for cards"
+        },
+        "borderRadius": {
+          "value": "12px",
+          "type": "borderRadius",
+          "description": "Standard border radius for cards"
+        }
+      },
+      "container": {
+        "paddingStandard": {
+          "value": "16px",
+          "type": "spacing",
+          "description": "Standard padding for containers"
+        },
+        "marginHorizontal": {
+          "content": {
+            "value": "24px",
+            "type": "spacing",
+            "description": "Standard horizontal margin for main content"
+          },
+          "responsive": {
+            "value": "10%",
+            "type": "spacing",
+            "description": "Responsive horizontal margin (percentage-based)"
+          }
+        }
+      },
+      "appBar": {
+        "elevation": {
+          "default": {
+            "value": "0",
+            "type": "elevation",
+            "description": "Default elevation for app bars (flat design)"
+          },
+          "scrolled": {
+            "value": "1",
+            "type": "elevation",
+            "description": "Elevation when content is scrolled under app bar"
+          }
+        }
+      },
+      "bottomNavigation": {
+        "iconSize": {
+          "value": "24px",
+          "type": "sizing",
+          "description": "Standard icon size for bottom navigation"
+        },
+        "elevation": {
+          "value": "0",
+          "type": "elevation",
+          "description": "Elevation for bottom navigation (flat design)"
+        }
+      },
+      "progressIndicator": {
+        "height": {
+          "linear": {
+            "value": "5px",
+            "type": "sizing",
+            "description": "Height for linear progress indicators"
+          }
+        },
+        "size": {
+          "circular": {
+            "small": {
+              "value": "20px",
+              "type": "sizing",
+              "description": "Small circular progress indicator size"
+            },
+            "medium": {
+              "value": "24px",
+              "type": "sizing",
+              "description": "Medium circular progress indicator size"
+            }
+          }
+        },
+        "strokeWidth": {
+          "value": "2px",
+          "type": "borderWidth",
+          "description": "Stroke width for circular progress indicators"
+        }
+      },
+      "photo": {
+        "aspectRatio": {
+          "value": "0.3",
+          "type": "ratio",
+          "description": "Aspect ratio for photo containers (30% of screen height)"
+        },
+        "borderRadius": {
+          "value": "12px",
+          "type": "borderRadius",
+          "description": "Border radius for photo containers"
+        },
+        "iconSize": {
+          "placeholder": {
+            "value": "48px",
+            "type": "sizing",
+            "description": "Icon size for photo placeholder"
+          }
+        }
+      },
+      "statusBadge": {
+        "paddingVertical": {
+          "value": "4px",
+          "type": "spacing",
+          "description": "Vertical padding for status badges"
+        },
+        "paddingHorizontal": {
+          "value": "8px",
+          "type": "spacing",
+          "description": "Horizontal padding for status badges"
+        },
+        "borderRadius": {
+          "value": "8px",
+          "type": "borderRadius",
+          "description": "Border radius for status badges"
+        },
+        "fontSize": {
+          "value": "12px",
+          "type": "fontSize",
+          "description": "Font size for status badge text"
+        }
+      },
+      "offlineIndicator": {
+        "width": {
+          "value": "100px",
+          "type": "sizing",
+          "description": "Width of offline status indicator"
+        },
+        "height": {
+          "value": "75px",
+          "type": "sizing",
+          "description": "Height of offline status indicator"
+        },
+        "iconSize": {
+          "value": "24px",
+          "type": "sizing",
+          "description": "Icon size in offline indicator"
+        }
+      },
+      "bottomSheet": {
+        "borderRadius": {
+          "value": "24px",
+          "type": "borderRadius",
+          "description": "Border radius for top corners of bottom sheets"
+        },
+        "dragHandle": {
+          "width": {
+            "value": "40px",
+            "type": "sizing",
+            "description": "Width of bottom sheet drag handle"
+          },
+          "height": {
+            "value": "6px",
+            "type": "sizing",
+            "description": "Height of bottom sheet drag handle"
+          },
+          "borderRadius": {
+            "value": "3px",
+            "type": "borderRadius",
+            "description": "Border radius of bottom sheet drag handle"
+          },
+          "marginVertical": {
+            "value": "12px",
+            "type": "spacing",
+            "description": "Vertical margin for bottom sheet drag handle"
+          }
+        }
+      }
+    }
+  },
+  "meta": {
+    "figmaInstructions": {
+      "import": "Import this JSON file into Figma using the Tokens Studio plugin or similar design token tools",
+      "colorStyles": "Create color styles in Figma using the color tokens, organizing them by theme (light/dark)",
+      "textStyles": "Create text styles combining fontFamily, fontSize, fontWeight, and lineHeight tokens",
+      "componentStyles": "Use component tokens to create consistent spacing, sizing, and styling for UI components",
+      "responsive": "Use spacing tokens with percentage values for responsive design layouts",
+      "shadows": "Create effect styles in Figma using the shadow token values for consistent elevation"
+    },
+    "usage": {
+      "developers": "Reference DOCUMENTACION_UI_UX.md for implementation details and code examples",
+      "designers": "Use these tokens to maintain design consistency across all design files and prototypes",
+      "collaboration": "Both teams should reference these tokens to ensure design-development alignment"
+    },
+    "maintenance": {
+      "updates": "Update these tokens when making design system changes and re-sync with both design and development",
+      "versioning": "Version control this file alongside design files to track design system evolution",
+      "validation": "Regularly validate that implemented components match these token definitions"
+    }
+  }
+}
